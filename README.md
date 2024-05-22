@@ -1,4 +1,4 @@
-#Gaussian Curve Fitting Project
+# Gaussian Curve Fitting Project
 
 ## Overview
 This project involves fitting a Gaussian curve to a set of data points using various mathematical techniques. The methods include basic gradient descent, the Levenberg-Marquardt algorithm, and Bayesian inference. The goal is to optimize the parameters of the Gaussian function to best fit the given data.
@@ -27,4 +27,30 @@ Bayesian inference involves sampling parameter values from prior distributions a
 \[ P(A, \mu, \sigma \mid x, y) \propto P(y \mid x, A, \mu, \sigma) P(A) P(\mu) P(\sigma) \]
 where \( P(y \mid x, A, \mu, \sigma) \) is the likelihood of the data given the parameters, and \( P(A) \), \( P(\mu) \), and \( P(\sigma) \) are the prior distributions of the parameters. The posterior distributions are used to estimate the parameters with the highest probability.
 
+## Important Mathematical Concepts
+
+### Least Squares and Gauss' Contribution
+The method of least squares minimizes the sum of squared errors:
+\[ \sum_{i=1}^n \epsilon_i^2 \]
+Carl Friedrich Gauss in 1809 introduced a probabilistic view by assuming the errors \( \epsilon_i \) follow a distribution \( \phi \). The probability density of the errors is maximized when the errors are minimized:
+\[ \Omega = \prod_{i=1}^n \phi(\epsilon_i) \]
+Gauss assumed that the best value to summarize measurements is the mean, which aligns with minimizing the sum of squared errors.
+
+### Gaussian Distribution
+Gauss concluded that the error distribution \( \phi \) should be symmetric and have its maximum at zero. He derived that the distribution must be:
+\[ \phi(\epsilon_i) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{\epsilon_i^2}{2 \sigma^2}\right) \]
+This is the Gaussian distribution, where \( \sigma^2 \) is the variance.
+
+### Maximizing Likelihood
+The likelihood function for the Gaussian distribution is:
+\[ \Omega = \prod_{i=1}^n \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{\epsilon_i^2}{2 \sigma^2}\right) \]
+Taking the logarithm simplifies the maximization to minimizing the sum of squared errors:
+\[ \text{maximize} \quad -\sum_{i=1}^n \epsilon_i^2 \]
+
+## Visualization
+The results are visualized by plotting the original data points, the fitted Gaussian curve, and the residuals between the observed and predicted values.
+
+## Pros and Cons of Each Algorithm
 Each algorithm used in Gaussian curve fitting has its pros and cons. Gradient Descent is simple to implement and effective for large datasets, but it can converge slowly and is sensitive to the choice of learning rate, making it suitable for straightforward optimization problems with large datasets. The Levenberg-Marquardt algorithm combines the benefits of gradient descent and Gauss-Newton methods, offering faster convergence for nonlinear least squares problems, but it is computationally intensive and requires good initial parameter estimates. It is ideal for problems requiring a balance between speed and accuracy. Bayesian Inference provides probabilistic parameter estimates and quantifies uncertainty but is computationally intensive and requires prior distributions. It is best for scenarios where understanding uncertainty and probabilistic nature of parameter estimates is crucial.
+
+This project demonstrates the application of advanced mathematical techniques for fitting a Gaussian model to data, providing a robust approach to parameter estimation and model fitting. For more detailed information, visit [Curve Fitting and the Gaussian Distribution](https://fabiandablander.com/r/Curve-Fitting-Gaussian.html).
