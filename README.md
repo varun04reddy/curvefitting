@@ -1,4 +1,4 @@
-# Gaussian Curve Fitting Project
+#Gaussian Curve Fitting Project
 
 ## Overview
 This project involves fitting a Gaussian curve to a set of data points using various mathematical techniques. The methods include basic gradient descent, the Levenberg-Marquardt algorithm, and Bayesian inference. The goal is to optimize the parameters of the Gaussian function to best fit the given data.
